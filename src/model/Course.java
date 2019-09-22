@@ -1,5 +1,4 @@
 package model;
-import java.lang.reflect.Field;
 
 public class Course {
     // Constants
@@ -19,20 +18,6 @@ public class Course {
       this.num_credits = num_credits;
       this.grade = grade;
     }
-
-  
-  /*  public boolean isNull(){
-        for (Field f : getClass().getDeclaredFields())
-            try {
-                if (f.get(this) != null)
-                    return false;
-            } catch (IllegalArgumentException ex) {
-                Logger.getLogger(Course.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IllegalAccessException ex) {
-                Logger.getLogger(Course.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        return true;              
-    }*/
     
     // Setters
     public void setValidable(boolean validable){
@@ -52,7 +37,7 @@ public class Course {
     }
   
     public void setGrade(double grade){
-      this.grade = grade;
+      this.grade = (grade >= 1) ? grade : 1.0;
     }
   
     // Getters
